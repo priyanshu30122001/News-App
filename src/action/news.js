@@ -22,8 +22,8 @@ export const fetchNews = () => {
   return async(dispatch)=>{
         try{
             dispatch(fetchNewsLoading())
-            const res = await axios.get('https://newsapi.org/v2/everything?apikey=86074700afeb4a65872f00a3986b9d61&q=India')
-            const filteredNews =res.data.articles.filter(article => article.title !== '[Removed]')  
+            const res = await axios.get('https://gnews.io/api/v4/search?q=example&apikey=44642a05d09774a92226646c6ecf0d68')
+            const filteredNews =res.data.articles 
             dispatch(fetchNewsSuccess(filteredNews))
            } catch(error){
                console.log(error)
